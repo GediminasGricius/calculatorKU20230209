@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ Route::get('/', function () {
 
 Route::get('/calculator', [CalculatorController::class, "showForm"] )->name("form");
 Route::post( '/calculator/result', [CalculatorController::class, "showResult"])->name("result");
+
+Route::resource("students", StudentController::class);
 
 Auth::routes();
 
