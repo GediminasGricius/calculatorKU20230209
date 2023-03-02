@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class GradeController extends Controller
@@ -14,7 +15,9 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        return view("grades.index",[
+           'grades'=>Grade::all()
+        ]);
     }
 
     /**
@@ -24,7 +27,9 @@ class GradeController extends Controller
      */
     public function create()
     {
-        //
+        return view("grades.create",[
+            "students"=>Student::all()
+        ]);
     }
 
     /**
@@ -35,7 +40,11 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $grade=new Grade();
+        $grade->grade=$request->grade;
+        $grade->student_id=$request->student_id;
+        $grade->save();
+        return redirect()->route('grades.index');
     }
 
     /**
