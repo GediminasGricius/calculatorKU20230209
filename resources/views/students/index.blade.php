@@ -25,6 +25,11 @@
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->surname }}</td>
                                     <td>{{ $student->year }}</td>
+                                    <td>
+                                        @foreach($student->grades as $grade)
+                                            {{ $grade->grade }}
+                                        @endforeach
+                                    </td>
                                     <td style="width: 100px;">
                                         <a class="btn btn-success" href="{{ route("students.edit",$student->id) }}">Edit</a>
                                     </td>
