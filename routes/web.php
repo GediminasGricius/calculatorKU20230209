@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::get('/calculator', [CalculatorController::class, "showForm"] )->name("form");
 Route::post( '/calculator/result', [CalculatorController::class, "showResult"])->name("result");
 
+Route::post('students/search', [StudentController::class, 'search'])->name('students.search');
 Route::resource("students", StudentController::class);
 
 Auth::routes();

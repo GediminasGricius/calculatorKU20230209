@@ -9,6 +9,17 @@
 
                     <div class="card-body">
                         <a class="btn btn-info" href="{{route("students.create")}}">Add new student</a>
+
+                        <hr>
+                        <form method="POST" action="{{ route("students.search") }}">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label">Name:</label>
+                                <input class="form-control" name="name" value="{{ $searchStudentName }}">
+                            </div>
+                            <button class="btn btn-success">Search</button>
+                        </form>
+                        <hr>
                         <table class="table" >
                             <thead>
                             <tr>

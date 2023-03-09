@@ -16,7 +16,7 @@ class GradeController extends Controller
     public function index()
     {
         return view("grades.index",[
-           'grades'=>Grade::all()
+           'grades'=>Grade::with('student')->get()
         ]);
     }
 
