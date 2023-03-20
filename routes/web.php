@@ -23,12 +23,20 @@ Route::get('/', function () {
 Route::get('/calculator', [CalculatorController::class, "showForm"] )->name("form");
 Route::post( '/calculator/result', [CalculatorController::class, "showResult"])->name("result");
 
-Route::post('students/search', [StudentController::class, 'search'])->name('students.search');
-Route::resource("students", StudentController::class);
+Route::get("/students", [StudentController::class, "index"])->name("students.index")->middleware(['replace']);
+Route::get("/grades", [GradeController::class, "index"])->name("grades.index");
+
+Route::middleware(['auth'])->group(function (){
+    Route::resource("students", StudentController::class)->except(['index']);
+    Route::resource("grades", GradeController::class)->except(['index']);;
+    Route::post('students/search', [StudentController::class, 'search'])->name('students.search')->middleware('adult');
+
+});
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource("grades", GradeController::class);
+

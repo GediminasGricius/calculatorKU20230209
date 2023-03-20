@@ -60,4 +60,5 @@
             </div>
         </div>
     </div>
+    Contact phone: [[phone]]
 @endsection

@@ -9,6 +9,9 @@ use Illuminate\Http\Response;
 
 class StudentController extends Controller
 {
+    public function __construct(){
+       // $this->middleware('random');
+    }
     /**
      * Display a listing of the resource.
      *
