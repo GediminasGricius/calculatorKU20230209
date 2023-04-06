@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ Route::middleware(['auth'])->group(function (){
 
 });
 
+Route::get("/setLanguage/{lang}", [LanguageController::class, 'setLanguage'])->name("lang");
 
 Auth::routes();
 

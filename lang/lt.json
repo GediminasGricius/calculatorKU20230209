@@ -1,0 +1,8 @@
+{
+    "Grade": "Pažimys",
+    "Student": "Studentas",
+    "Add new grade": "Pridėti naują pažimį",
+    "Add new student": "Pridėti naują studentą",
+    "Name is required and must be at least 2 characters": "Vardas yra privalomas ir turi būti ne trumpesnis nei 2 simboliai",
+    "Year must be provided and must have 4 digits": "Metai yra privalomi ir turi būti sudaryti iš 4 simbolių"
+}

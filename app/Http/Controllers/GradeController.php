@@ -13,8 +13,9 @@ class GradeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
         return view("grades.index",[
            'grades'=>Grade::with('student')->get()
         ]);

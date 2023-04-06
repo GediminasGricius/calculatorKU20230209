@@ -8,13 +8,15 @@
                     <div class="card-header">Students </div>
 
                     <div class="card-body">
-                        <a class="btn btn-info" href="{{route("students.create")}}">Add new student</a>
+                        <a class="btn btn-info" href="{{route("students.create")}}">{{ __("Add new student") }}</a>
 
+                        <hr>
+                        {{ __("auth.message") }}
                         <hr>
                         <form method="POST" action="{{ route("students.search") }}">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Name:</label>
+                                <label class="form-label">{{ __("Name") }}:</label>
                                 <input class="form-control" name="name" value="{{ $searchStudentName }}">
                             </div>
                             <button class="btn btn-success">Search</button>
@@ -23,9 +25,9 @@
                         <table class="table" >
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Surname</th>
-                                <th>Year</th>
+                                <th>{{ __("Name") }}</th>
+                                <th>{{ __("Surname") }}</th>
+                                <th>{{ __("Year") }}</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -42,13 +44,13 @@
                                         @endforeach
                                     </td>
                                     <td style="width: 100px;">
-                                        <a class="btn btn-success" href="{{ route("students.edit",$student->id) }}">Edit</a>
+                                        <a class="btn btn-success" href="{{ route("students.edit",$student->id) }}">{{ __("Edit") }}</a>
                                     </td>
                                     <td style="width: 100px;">
                                         <form method="post" action="{{ route('students.destroy',$student->id) }}">
                                             @csrf
                                             @method("delete")
-                                            <button class="btn btn-danger">Delete</button>
+                                            <button class="btn btn-danger">{{ __("Delete") }}</button>
                                         </form>
                                     </td>
                                 </tr>

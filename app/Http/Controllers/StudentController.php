@@ -6,6 +6,7 @@ use App\Models\Grade;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 
 class StudentController extends Controller
 {
@@ -26,6 +27,7 @@ class StudentController extends Controller
         }else{
             $students=Student::with('grades')->get();
         }
+
         return view("students.index",[
             "students"=>$students,
             "searchStudentName"=>$searchStudentName
@@ -51,6 +53,16 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>'required|min:2',
+            'surname'=>'required|min:2',
+            'year'=>'required|digits:4'
+        ],[
+            "name"=>__("Name is required and must be at least 2 characters"),
+            "surname"=>__("Surname is required and must be at least 2 characters"),
+            "year"=>__("Year must be provided and must have 4 digits")
+        ]);
+
         $student=new Student();
         $student->name=$request->name;
         $student->surname=$request->surname;

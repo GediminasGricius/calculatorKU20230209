@@ -8,13 +8,15 @@
                     <div class="card-header">Students </div>
 
                     <div class="card-body">
-                        <a class="btn btn-info" href="{{route("grades.create")}}">Add new grade</a>
+                        <a class="btn btn-info" href="{{route("grades.create")}}">{{ __("Add new grade") }}</a>
+                        <hr>
+                        Out email is: [[email]]
                         <table class="table" >
                             <thead>
                             <tr>
-                                <th>Grade</th>
+                                <th>{{ __("Grade") }}</th>
 
-                                <th>Student</th>
+                                <th>{{ __("Student") }}</th>
 
                             </tr>
                             </thead>

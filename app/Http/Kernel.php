@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\AdaultMiddleware;
+use App\Http\Middleware\LanguageMiddleware;
 use App\Http\Middleware\RandomMiddleware;
 use App\Http\Middleware\ReplaceMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -40,7 +41,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-
+            ReplaceMiddleware::class,
+            LanguageMiddleware::class,
         ],
 
         'api' => [

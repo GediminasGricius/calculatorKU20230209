@@ -63,7 +63,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('auth.logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -78,6 +78,17 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="height: 60px;">
+                        <div class="float-end">
+                            <a class="btn btn-secondary" href="{{ route("lang", "lt") }}">LT</a> &nbsp;
+                            <a class="btn btn-secondary"  href="{{ route("lang", "en") }}">EN</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             @yield('content')
         </main>
     </div>

@@ -16,7 +16,6 @@ return [
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'message'=>'This is my message',
-    'logout' => "Logout",
-
+    'message'=>'Čia yra mano žinutė',
+    'logout' => "Atsijungti",
 ];
