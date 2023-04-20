@@ -13,6 +13,8 @@
                         <hr>
                         {{ __("auth.message") }}
                         <hr>
+
+                        <img src="{{ asset('/storage/programmer.png') }}" width="100">
                         <form method="POST" action="{{ route("students.search") }}">
                             @csrf
                             <div class="mb-3">
@@ -25,9 +27,11 @@
                         <table class="table" >
                             <thead>
                             <tr>
+                                <th>Image</th>
                                 <th>{{ __("Name") }}</th>
                                 <th>{{ __("Surname") }}</th>
                                 <th>{{ __("Year") }}</th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -35,6 +39,11 @@
                             <tbody>
                             @foreach($students as $student)
                                 <tr>
+                                    <td>
+                                        @if ($student->image!=null)
+                                            <img src=" {{ asset("/storage/students/".$student->image) }}" width="100">
+                                        @endif
+                                    </td>
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->surname }}</td>
                                     <td>{{ $student->year }}</td>
@@ -42,6 +51,11 @@
                                         @foreach($student->grades as $grade)
                                             {{ $grade->grade }}
                                         @endforeach
+                                    </td>
+                                    <td>
+                                        @if($student->agreement!=null)
+                                            <a href="{{ route("students.agreement", $student->id) }}" class="btn btn-info">Agreement</a>
+                                        @endif
                                     </td>
                                     <td style="width: 100px;">
                                         <a class="btn btn-success" href="{{ route("students.edit",$student->id) }}">{{ __("Edit") }}</a>

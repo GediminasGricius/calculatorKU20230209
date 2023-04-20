@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function (){
     Route::resource("students", StudentController::class)->except(['index']);
     Route::resource("grades", GradeController::class)->except(['index']);;
     Route::post('students/search', [StudentController::class, 'search'])->name('students.search')->middleware('adult');
-
+    Route::get('/students/{id}/agreement', [StudentController::class, "getAgreement"])->name("students.agreement");
 });
 
 Route::get("/setLanguage/{lang}", [LanguageController::class, 'setLanguage'])->name("lang");
