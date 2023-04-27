@@ -12,6 +12,7 @@ class StudentController extends Controller
 {
     public function __construct(){
        // $this->middleware('random');
+        $this->authorizeResource(Student::class, 'student');
     }
     /**
      * Display a listing of the resource.
@@ -141,7 +142,9 @@ class StudentController extends Controller
     }
 
     public function search(Request $request){
-        $request->session()->put('searchStudentName', $request->name);
+        if ($request->user()->can('search_student')){
+            $request->session()->put('searchStudentName', $request->name);
+        }
         return redirect()->route("students.index");
 
 
